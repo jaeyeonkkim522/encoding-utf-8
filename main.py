@@ -1,8 +1,5 @@
-# /Users/kimjaeyeon/Downloads/sql_test/한국도로공사_휴게소 만족도 점수_20171231..csv
-
 import pandas as pd
 import chardet
-from io import StringIO
 import streamlit as st
 
 st.title('MAC 인코딩 이슈 해결')
@@ -21,11 +18,9 @@ def file_to_dataframe(uploaded_file):
         uploaded_file.seek(0)  # 파일 읽기 포인터를 다시 처음으로 이동시킵니다.
         # print(uploaded_file.name)
         if result['encoding'] == 'EUC-KR':
-            print("encoding 이슈 euc-kr", uploaded_file.name, result)
             dataframe = pd.read_csv(uploaded_file, encoding = encoding_type, encoding_errors='ignore')   
             return dataframe
         else:
-            print("encoding 이슈 utf-8", uploaded_file.name, result)
             dataframe = pd.read_csv(uploaded_file, encoding = "utf-8", encoding_errors='ignore')
             return dataframe
 
@@ -45,6 +40,3 @@ if uploaded_files:
                     
                 except Exception as e:
                     st.error(f"에러가 발생했습니다: {e}")
-# /Users/kimjaeyeon/Downloads/sql_test/sql_test2/
-
-
