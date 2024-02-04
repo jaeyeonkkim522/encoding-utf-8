@@ -1,14 +1,17 @@
 import pandas as pd
 import chardet
 import streamlit as st
+from streamlit_extras.buy_me_a_coffee import button
 
-st.title('MAC 인코딩 이슈 해결')
-st.title('여러 CSV 파일 처리하기')
+button(username = 'jaeyeon', floating=True, width = 221)
+
+st.title('KO-utf-8 변환기')
+st.title('맥북에서 한글 csv파일 utf-8 자동 변환')
 
 encoding_type = 'euc-kr'
 
 uploaded_files = st.file_uploader("여러 파일을 선택해주세요", accept_multiple_files=True)
-file_path = st.text_input('원하는 파일 경로를 적어주세요. : (/Users/Downloads/)')
+file_path = st.text_input('원하는 파일 경로를 적어주세요.  (/Users/Downloads/)')
 
 
 def file_to_dataframe(uploaded_file):
@@ -40,3 +43,6 @@ if uploaded_files:
                     
                 except Exception as e:
                     st.error(f"에러가 발생했습니다: {e}")
+# /Users/kimjaeyeon/Downloads/sql_test/sql_test2/
+
+
