@@ -13,7 +13,7 @@ def main():
     encoding_type = 'euc-kr'
 
     uploaded_files = st.file_uploader("Upload your csv file", type = ['csv'], accept_multiple_files=True)
-    file_path = st.text_input('원하는 파일 경로를 적어주세요.  (/Users/Downloads/)')
+    # file_path = st.text_input('원하는 파일 경로를 적어주세요.  (/Users/Downloads/)')
 
 
     def file_to_dataframe(uploaded_file):
@@ -28,23 +28,29 @@ def main():
             else:
                 dataframe = pd.read_csv(uploaded_file, encoding = "utf-8", encoding_errors='ignore')
                 return dataframe
-
+            
+        
     if uploaded_files:
         if st.button("변경 요청하기"):
             for uploaded_file in uploaded_files:
                 
                 df = file_to_dataframe(uploaded_file)
                 file_name = uploaded_file.name
-                full_file_path = file_path + file_name
+                # full_file_path = file_path + file_name
 
                 with st.spinner('변경 작업 진행중....'):
                     try:
-                        print(full_file_path)
-                        test2 = df.to_csv(full_file_path, encoding = "utf-8", index=False)
+                        # st.download_button(
+                        #     label='CSV로 다운로드',
+                        #     data=df.to_csv(encoding = "utf-8"), 
+                        #     file_name=file_name, 
+                        #     mime='text/csv'
+                        # )
+                        #print(full_file_path)
+                        test2 = df.to_csv(encoding = "utf-8", index=False)
+                        
                         st.success('정상적으로 변환되었습니다!!', icon="✅")
                         
                     except Exception as e:
                         st.error(f"에러가 발생했습니다: {e}")
     # /Users/kimjaeyeon/Downloads/sql_test/sql_test2/
-
-
