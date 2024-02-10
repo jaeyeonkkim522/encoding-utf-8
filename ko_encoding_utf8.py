@@ -40,14 +40,13 @@ def main():
 
                 with st.spinner('변경 작업 진행중....'):
                     try:
-                        # st.download_button(
-                        #     label='CSV로 다운로드',
-                        #     data=df.to_csv(encoding = "utf-8"), 
-                        #     file_name=file_name, 
-                        #     mime='text/csv'
-                        # )
-                        #print(full_file_path)
-                        test2 = df.to_csv(encoding = "utf-8", index=False)
+                        st.download_button(
+                            label='CSV로 다운로드',
+                            data=df.to_csv(encoding = "utf-8"), 
+                            file_name=file_name, 
+                            mime='text/csv'
+                        )
+                        #test2 = df.to_csv(encoding = "utf-8", index=False)
                         
                         st.success('정상적으로 변환되었습니다!!', icon="✅")
                         
