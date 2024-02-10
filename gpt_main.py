@@ -20,7 +20,6 @@ from langchain.callbacks import get_openai_callback
 from langchain.memory import StreamlitChatMessageHistory
 
 from langchain.document_loaders import CSVLoader
-from langchain_google_genai import ChatGoogleGenerativeAI
 
 
 def main():
@@ -157,7 +156,6 @@ def get_vectorstore(text_chunks):
 
 def get_conversation_chain(vetorestore):
     llm = ChatOpenAI(model_name = 'gpt-3.5-turbo',temperature=0)
-    #llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature = 0)
     conversation_chain = ConversationalRetrievalChain.from_llm(
             llm=llm, 
             chain_type="stuff", 
