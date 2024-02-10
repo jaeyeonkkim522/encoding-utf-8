@@ -1,6 +1,5 @@
 import streamlit as st
 import ko_encoding_utf8
-import streamlit_refer
 import gpt_main
 
 
@@ -15,7 +14,6 @@ def main():
     selection = st.sidebar.radio("Go to", ["QA chatbot", "Encoding"])
 
     if selection == "QA chatbot":
-        #streamlit_refer.main()
         gpt_main.main()
         
 
