@@ -3,11 +3,9 @@ import ko_encoding_utf8
 import streamlit_refer
 import gpt_main
 
-from dotenv import load_dotenv
 
 
 def main():
-    load_dotenv()
     
     st.set_page_config(
         page_title="jy_test",
